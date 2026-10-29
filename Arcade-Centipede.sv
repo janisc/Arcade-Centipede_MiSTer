@@ -207,7 +207,7 @@ localparam CONF_STR = {
 	"H0OJK,Aspect ratio,Original,Full Screen,[ARC1],[ARC2];",
 	"H0O2,Orientation,Vert,Horz;",
 	"O35,Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;",
-	"OEFG,Mouse/trackball speed,100%,200%,400%,25%,50%,-,-,-;",
+	"OEFG,Mouse/trackball speed,100%,200%,400%,25%,50%,800%;",
 	"OB,Vertical flip,Off,On;",
 	"OC,Cabinet,Cocktail,Upright;",
 	"-;",

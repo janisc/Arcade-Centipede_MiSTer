@@ -84,6 +84,11 @@ begin
 			mouse_mag_x = |mouse_mag_x[7:6] ? 8'd255 : mouse_mag_x << 2;
 			mouse_mag_y = |mouse_mag_y[7:6] ? 8'd255 : mouse_mag_y << 2;
 		end
+		else if(mouse_speed == 3'd5) // 800% speed
+		begin
+			mouse_mag_x = |mouse_mag_x[7:5] ? 8'd255 : mouse_mag_x << 3;
+			mouse_mag_y = |mouse_mag_y[7:5] ? 8'd255 : mouse_mag_y << 3;
+		end
 
 		trackball_falloff <= {trackball_falloff_width{1'b1}};
 	end
