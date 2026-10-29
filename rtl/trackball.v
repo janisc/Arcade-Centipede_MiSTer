@@ -73,15 +73,16 @@ begin
 			mouse_mag_x = mouse_mag_x >> 1;
 			mouse_mag_y = mouse_mag_y >> 1;
 		end
+		// Faster speeds clamp to the 8-bit maximum instead of wrapping around
 		else if(mouse_speed == 3'd1) // 200% speed
 		begin
-			mouse_mag_x = mouse_mag_x << 1;
-			mouse_mag_y = mouse_mag_y << 1;
+			mouse_mag_x = mouse_mag_x[7] ? 8'd255 : mouse_mag_x << 1;
+			mouse_mag_y = mouse_mag_y[7] ? 8'd255 : mouse_mag_y << 1;
 		end
 		else if(mouse_speed == 3'd2) // 400% speed
 		begin
-			mouse_mag_x = mouse_mag_x << 2;
-			mouse_mag_y = mouse_mag_y << 2;
+			mouse_mag_x = |mouse_mag_x[7:6] ? 8'd255 : mouse_mag_x << 2;
+			mouse_mag_y = |mouse_mag_y[7:6] ? 8'd255 : mouse_mag_y << 2;
 		end
 
 		trackball_falloff <= {trackball_falloff_width{1'b1}};
